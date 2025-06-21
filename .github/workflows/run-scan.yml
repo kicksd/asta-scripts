@@ -1,9 +1,9 @@
 name: Run ASTA Scan
 
-schedule:
-  - cron: '*/5 * * * *'  # every 5 minutes (UTC)
-
-
+on:
+  schedule:
+    - cron: '*/5 * * * *'  # every 5 minutes (UTC)
+  workflow_dispatch:        # optional: allows manual trigger
 
 jobs:
   run-scan:
@@ -25,3 +25,4 @@ jobs:
 
       - name: Run scan.py
         run: python scan.py
+
