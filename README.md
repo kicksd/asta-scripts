@@ -138,3 +138,4 @@ if __name__ == "__main__":
     body = "\n\n".join(parts)
     print(body)
     send_telegram(body)
+# force cron to start
