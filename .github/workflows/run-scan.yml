@@ -1,0 +1,28 @@
+name: Run ASTA Scan
+
+# ▶️ trigger manually or on schedule
+on:
+  workflow_dispatch:    # lets you click “Run workflow” in GitHub UI
+  schedule:
+    - cron: '30 * * * 1-5'  # at minute 30 past every hour, Mon–Fri (UTC)
+
+jobs:
+  run-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install yfinance pandas requests
+
+      - name: Run your scanner
+        run: python scan.py
