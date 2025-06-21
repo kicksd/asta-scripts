@@ -1,9 +1,8 @@
 name: Run ASTA Scan
 
-on:
-  workflow_dispatch:    # manual trigger stays
-  schedule:
-    - cron: '*/15 * * * *'  # every 15 minutes, UTC
+schedule:
+  - cron: '*/5 * * * *'  # every 5 minutes (UTC)
+
 
 
 jobs:
