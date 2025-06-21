@@ -1,0 +1,27 @@
+name: Run ASTA Scan
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'  # Every 5 minutes (UTC)
+  workflow_dispatch:        # Optional: allows manual trigger
+
+jobs:
+  run-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install yfinance pandas requests
+
+      - name: Run scan.py
+        run: python scan.py
