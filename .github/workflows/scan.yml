@@ -3,7 +3,7 @@ name: Run ASTA Scan
 on:
   schedule:
     - cron: '*/5 * * * *'  # Every 5 minutes (UTC)
-  workflow_dispatch:        # Optional: allows manual trigger
+  workflow_dispatch:        # Optional manual trigger
 
 jobs:
   run-scan:
