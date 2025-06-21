@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "/Users/admin/asta-scripts/scan.py", line 2, in <module>
+    import yfinance as yf
+ModuleNotFoundError: No module named 'yfinance'
+Traceback (most recent call last):
+  File "/Users/admin/asta-scripts/scan.py", line 2, in <module>
+    import yfinance as yf
+ModuleNotFoundError: No module named 'yfinance'
+Traceback (most recent call last):
+  File "/Users/admin/asta-scripts/scan.py", line 2, in <module>
+    import yfinance as yf
+ModuleNotFoundError: No module named 'yfinance'
+Traceback (most recent call last):
+  File "/Users/admin/asta-scripts/scan.py", line 2, in <module>
+    import yfinance as yf
+ModuleNotFoundError: No module named 'yfinance'
+Traceback (most recent call last):
+  File "/Users/admin/asta-scripts/scan.py", line 2, in <module>
+    import yfinance as yf
+ModuleNotFoundError: No module named 'yfinance'

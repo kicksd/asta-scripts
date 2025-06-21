@@ -1,0 +1,12 @@
+wye4akybc8q7bf6from kiteconnect import KiteConnect
+
+# 1) Initialize
+kite = KiteConnect(api_key="YOUR_API_KEY")
+
+# 2) Get login URL & authorize manually
+print(kite.login_url())
+
+# 3) After login you receive a `request_token` in callback URL
+# Exchange it for access token:
+data = kite.generate_session("REQUEST_TOKEN_HERE", api_secret="YOUR_API_SECRET")
+kite.set_access_token(data["access_token"])
