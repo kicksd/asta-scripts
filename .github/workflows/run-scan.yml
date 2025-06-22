@@ -23,5 +23,5 @@ jobs:
           pip install --upgrade pip
           pip install yfinance pandas requests
 
-      - name: 5Cross50-Trade.py
-        run: 5Cross50-Trade.py
+       - name: Run 5Cross50-Trade.py
+       run: python 5Cross50-Trade.py
