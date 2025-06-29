@@ -1,18 +1,13 @@
-name: 📈 Market Scanner
+name: 📊 Run Market Scanner Every 15 Minutes
 
 on:
   schedule:
-    - cron: '*/15 4-9 * * 1-5'  # Every 15 mins during Indian market hours (9:30 AM to 3:30 PM IST)
-    - cron: '30 9 * * 1-5'      # Once daily at 3:00 PM IST for full stock scan
-  workflow_dispatch:
+    - cron: "*/15 * * * *"  # Every 15 minutes
+  workflow_dispatch:        # Allow manual trigger from GitHub UI
 
 jobs:
-  run-scan:
+  run-market-scan:
     runs-on: ubuntu-latest
-
-    env:
-      TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
 
     steps:
       - name: 📥 Checkout repository
@@ -21,13 +16,16 @@ jobs:
       - name: 🐍 Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: '3.12'
 
-      - name: 📦 Install dependencies
+      - name: 🧪 Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: ▶️ Run Market Scanner
+      - name: 🚀 Run market_scanner.py
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
         run: |
           python market_scanner.py
